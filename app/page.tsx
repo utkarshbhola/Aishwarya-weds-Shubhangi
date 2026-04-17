@@ -253,87 +253,124 @@ function Envelope({ onOpen }: { onOpen: () => void }) {
   };
 
   return (
-    <motion.div
-      className="flex flex-col items-center justify-center gap-6 cursor-pointer select-none"
-      onClick={handleClick}
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.97 }}
-    >
-      <div className="relative w-72 h-48" style={{ perspective: "700px" }}>
-        {/* Back panel */}
-        <div className="absolute inset-0 rounded-xl shadow-2xl"
-          style={{
-            background: `linear-gradient(150deg, ${C.card} 0%, ${C.cardEdge} 60%, #DDD0B0 100%)`,
-            border: `1.5px solid ${C.goldLight}`,
-            boxShadow: `0 8px 32px rgba(160,120,48,0.22)`,
-          }}/>
-        {/* Bottom fold */}
-        <div className="absolute bottom-0 left-0 right-0 h-28 rounded-b-xl"
-          style={{
-            background: `linear-gradient(170deg, ${C.card} 0%, #DDD0B0 100%)`,
-            clipPath: "polygon(0 100%, 50% 0%, 100% 100%)",
-          }}/>
-        {/* Left fold */}
-        <div className="absolute top-0 bottom-0 left-0 w-1/2 rounded-bl-xl"
-          style={{
-            background: `linear-gradient(135deg, ${C.cardEdge} 0%, #DDD0B0 100%)`,
-            clipPath: "polygon(0 0, 100% 50%, 0 100%)",
-          }}/>
-        {/* Right fold */}
-        <div className="absolute top-0 bottom-0 right-0 w-1/2 rounded-br-xl"
-          style={{
-            background: `linear-gradient(225deg, ${C.cardEdge} 0%, #DDD0B0 100%)`,
-            clipPath: "polygon(100% 0, 0 50%, 100% 100%)",
-          }}/>
-        {/* Flap — sage green matching botanical theme */}
-        <motion.div
-          className="absolute top-0 left-0 right-0 h-28"
-          animate={clicked ? { rotateX: -180, opacity: 0 } : { rotateX: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
-          style={{
-            background: `linear-gradient(175deg, ${C.sageDark} 0%, ${C.sage} 100%)`,
-            clipPath: "polygon(0 0, 50% 78%, 100% 0)",
-            transformOrigin: "top center",
-            transformStyle: "preserve-3d",
-          }}/>
-        {/* Gold trim line on flap */}
-        <motion.div className="absolute top-0 left-0 right-0 pointer-events-none"
-          animate={clicked ? { opacity: 0 } : { opacity: 1 }}>
-          <svg width="100%" height="80" viewBox="0 0 288 80" preserveAspectRatio="none">
-            <polyline points="0,0 144,62 288,0" fill="none" stroke={C.goldLight} strokeWidth="1.4" opacity="0.7"/>
-          </svg>
-        </motion.div>
-        {/* Gold OM seal */}
-        <motion.div className="absolute z-10 flex items-center justify-center"
-          style={{
-            width: 50, height: 50, borderRadius: "50%",
-            background: `radial-gradient(circle at 38% 35%, ${C.goldPale}, ${C.gold})`,
-            border: `2px solid ${C.card}`,
-            boxShadow: `0 2px 16px rgba(160,120,48,0.5)`,
-            top: "50%", left: "50%", transform: "translate(-50%, -50%)",
-          }}
-          animate={clicked ? { scale: 0, opacity: 0 } : { scale: 1, opacity: 1 }}
-          transition={{ duration: 0.28, delay: clicked ? 0.08 : 0 }}>
-          <span style={{ fontSize: 24, lineHeight: 1, color: C.card, fontWeight: 700, fontFamily: "serif", marginTop: 2 }}>ॐ</span>
-        </motion.div>
-      </div>
+  <motion.div
+    className="flex flex-col items-center justify-center gap-6 cursor-pointer select-none"
+    onClick={handleClick}
+    whileHover={{ scale: 1.03 }}
+    whileTap={{ scale: 0.97 }}
+  >
+    <div className="relative w-72 h-48" style={{ perspective: "700px" }}>
 
-      <motion.p
-        animate={clicked ? { opacity: 0, y: -8 } : { opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-        style={{ fontFamily: "var(--font-cormorant)", fontSize: 13, letterSpacing: "0.22em", color: C.textMid, textTransform: "uppercase" }}>
-        Tap to open your invitation
-      </motion.p>
+      {/* Back panel */}
+      <div
+        className="absolute inset-0 rounded-xl shadow-2xl"
+        style={{
+          background: `linear-gradient(150deg, ${C.card} 0%, ${C.cardEdge} 60%, #DDD0B0 100%)`,
+          border: `1.5px solid ${C.goldLight}`,
+          boxShadow: `0 8px 32px rgba(160,120,48,0.22)`,
+        }}
+      />
 
+      {/* Bottom fold */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-28 rounded-b-xl"
+        style={{
+          background: `linear-gradient(170deg, ${C.card} 0%, #DDD0B0 100%)`,
+          clipPath: "polygon(0 100%, 50% 0%, 100% 100%)",
+        }}
+      />
+
+      {/* Left fold */}
+      <div
+        className="absolute top-0 bottom-0 left-0 w-1/2 rounded-bl-xl"
+        style={{
+          background: `linear-gradient(135deg, ${C.cardEdge} 0%, #DDD0B0 100%)`,
+          clipPath: "polygon(0 0, 100% 50%, 0 100%)",
+        }}
+      />
+
+      {/* Right fold */}
+      <div
+        className="absolute top-0 bottom-0 right-0 w-1/2 rounded-br-xl"
+        style={{
+          background: `linear-gradient(225deg, ${C.cardEdge} 0%, #DDD0B0 100%)`,
+          clipPath: "polygon(100% 0, 0 50%, 100% 100%)",
+        }}
+      />
+
+      {/* Flap */}
       <motion.div
-        animate={clicked ? { opacity: 0 } : { y: [0, 6, 0] }}
-        transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}>
-        <svg width="20" height="12" viewBox="0 0 20 12" fill="none">
-          <path d="M1 1L10 10L19 1" stroke={C.gold} strokeWidth="2" strokeLinecap="round"/>
+        className="absolute top-0 left-0 right-0 h-28"
+        animate={clicked ? { rotateX: -180, opacity: 0 } : { rotateX: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+        style={{
+          background: `linear-gradient(175deg, ${C.sageDark} 0%, ${C.sage} 100%)`,
+          clipPath: "polygon(0 0, 50% 78%, 100% 0)",
+          transformOrigin: "top center",
+          transformStyle: "preserve-3d",
+        }}
+      />
+
+      {/* Gold trim */}
+      <motion.div
+        className="absolute top-0 left-0 right-0 pointer-events-none"
+        animate={clicked ? { opacity: 0 } : { opacity: 1 }}
+      >
+        <svg width="100%" height="80" viewBox="0 0 288 80" preserveAspectRatio="none">
+          <polyline
+            points="0,0 144,62 288,0"
+            fill="none"
+            stroke={C.goldLight}
+            strokeWidth="1.4"
+            opacity="0.7"
+          />
         </svg>
       </motion.div>
+
+      {/* ✨ Subtle center highlight (replacement for OM) */}
+      <div
+        className="absolute"
+        style={{
+          width: 40,
+          height: 40,
+          borderRadius: "50%",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          background: "rgba(255,255,255,0.15)",
+          backdropFilter: "blur(2px)",
+          opacity: 0.4,
+        }}
+      />
+
+    </div>
+
+    {/* CTA */}
+    <motion.p
+      animate={clicked ? { opacity: 0, y: -8 } : { opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      style={{
+        fontFamily: "var(--font-cormorant)",
+        fontSize: 13,
+        letterSpacing: "0.22em",
+        color: C.textMid,
+        textTransform: "uppercase",
+      }}
+    >
+      Tap to open your invitation
+    </motion.p>
+
+    {/* Arrow */}
+    <motion.div
+      animate={clicked ? { opacity: 0 } : { y: [0, 6, 0] }}
+      transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
+    >
+      <svg width="20" height="12" viewBox="0 0 20 12" fill="none">
+        <path d="M1 1L10 10L19 1" stroke={C.gold} strokeWidth="2" strokeLinecap="round" />
+      </svg>
     </motion.div>
-  );
+  </motion.div>
+);
 }
 
 /* ─────────────────────────────────────────────
