@@ -502,7 +502,7 @@ export default function Page() {
 
   return (
     <main
-      className="min-h-screen flex flex-col items-center justify-center px-4 py-10"
+      className="h-screen flex flex-col items-center justify-center px-4 py-4 overflow-hidden"
       style={{
         background: `radial-gradient(ellipse at 58% 18%, ${C.ivory} 0%, ${C.ivoryWarm} 28%, ${C.beige} 62%, ${C.beigeDeep} 100%)`,
       }}
