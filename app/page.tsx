@@ -396,7 +396,7 @@ function InvitationCard() {
             textTransform: "uppercase",
           }}>SAVE</span>
           <span style={{
-            fontFamily: "var(--font-great-vibes)",
+            fontFamily: "var(--font-allura)",
             fontSize: 26,
             color: C.textMid,
             lineHeight: 1,
@@ -427,7 +427,7 @@ function InvitationCard() {
 
         {/* Shubhangi — script, large */}
         <motion.h1 variants={scaleFade} style={{
-          fontFamily: "var(--font-great-vibes)",
+          fontFamily: "var(--font-allura)",
           fontSize: 58,
           color: C.textDark,
           lineHeight: 1,
@@ -438,7 +438,7 @@ function InvitationCard() {
 
         {/* & */}
         <motion.p variants={fadeUp} style={{
-          fontFamily: "var(--font-great-vibes)",
+          fontFamily: "var(--font-allura)",
           fontSize: 38,
           color: C.textDark,
           lineHeight: 1,
@@ -449,7 +449,7 @@ function InvitationCard() {
 
         {/* Aishwarya — script, large */}
         <motion.h1 variants={scaleFade} style={{
-          fontFamily: "var(--font-great-vibes)",
+          fontFamily: "var(--font-allura)",
           fontSize: 58,
           color: C.textDark,
           lineHeight: 1,
