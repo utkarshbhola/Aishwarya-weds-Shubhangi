@@ -23,11 +23,11 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: "Shubhangi & Aishwary Wedding Invitation",
-  description: "Join us in celebrating the wedding of Aishwarya and Shubhangi",
+  description: "Save The Date !!",
 
   openGraph: {
     title: "Shubhangi & Aishwary Wedding Invitation",
-    description: "Join us in celebrating the wedding of Aishwarya and Shubhangi",
+    description: "Save The Date !!",
     url: "https://shubhangi-weds-aishwary.vercel.app/",
     siteName: "Wedding Invite",
     images: [
